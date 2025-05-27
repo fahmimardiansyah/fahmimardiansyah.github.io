@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahmi Mardiansyah - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0022fa ',secondary:'#0022fa '},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            background-color: #0022fa ;
+            font-family: 'Inter', sans-serif;
+        }
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-item {
+            position: relative;
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #FF69B4;
+            transition: width 0.3s;
+        }
+        .nav-item:hover::after {
+            width: 100%;
+        }
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+        .skill-badge {
+            transition: transform 0.2s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+        .contact-button {
+            transition: all 0.3s ease;
+        }
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .star {
+            position: absolute;
+            background-color: #FFD700;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        .zigzag {
+            position: absolute;
+            height: 20px;
+            background: linear-gradient(45deg, transparent 33.333%, #4CAF50 33.333%, #4CAF50 66.667%, transparent 66.667%), linear-gradient(135deg, transparent 33.333%, #4CAF50 33.333%, #4CAF50 66.667%, transparent 66.667%);
+            background-size: 20px 40px;
+        }
+        .sun {
+            position: absolute;
+            background-color: #FFD700;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #FFD700;
+        }
+        .sun::before {
+            content: '';
+            position: absolute;
+            height: 160%;
+            width: 160%;
+            left: -30%;
+            top: -30%;
+            background: repeating-conic-gradient(#FFD700 0deg 18deg, transparent 18deg 36deg);
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #FF69B4;
+            box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+        }
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .checkmark {
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: #FF69B4;
+            border-color: #FF69B4;
+        }
+        .checkmark:after {
+            content: "";
+            display: none;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-[#253dd7] text-gray-900 min-h-screen">
+    <div class="portfolio-container px-4 py-8 md:py-12">
+        <!-- Header with Browser Dots -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl mb-10">
+            <div class="p-6">
+                <!-- Browser Dots -->
+                <div class="flex gap-2 mb-4">
+                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-pink-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-6">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <!-- Profile Image with Decorative Elements -->
+                        <div class="relative w-64 h-64 flex-shrink-0">
+                            
+                            <!-- Zigzag Decoration -->
+                            <div class="zigzag w-24 h-6 right-0 top-0 transform rotate-45 z-10"></div>
+                            
+                            <!-- Profile Image -->
+                            <div class="w-full h-full rounded-3xl overflow-hidden border-4 border-gray-800 relative z-0">
+                                <img src="img/ian.jpg" alt="Fahmi Mardiansyah" class="w-full h-full object-cover object-top">
+                            </div>
+                            
+                            <!-- Star Decoration -->
+                            <div class="star w-8 h-8 bottom-4 -left-4 z-10"></div>
+                        </div>
+                        
+                        <!-- Name and Roles -->
+                        <div class="flex-1">
+                            <h1 class="text-5xl font-bold mb-6">Fahmi Mardiansyah</h1>
+                            
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <div class="bg-pink-200 text-gray-900 font-semibold py-3 px-6 rounded-full text-center">
+                                    GRAPHIC DESIGNER
+                                </div>
+                                <div class="bg-yellow-300 text-gray-900 font-semibold py-3 px-6 rounded-full text-center">
+                                    SOCIAL MEDIA SPECIALIST
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Profile and Skills Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- Skills Section -->
+            <div class="bg-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
+                <div class="bg-green-500 text-white font-bold py-3 px-6 rounded-full inline-block mb-6">
+                    Skills
+                </div>
+                
+                <!-- Decorative Star -->
+                <div class="absolute right-8 top-20 transform rotate-12">
+                    <div class="w-8 h-8 bg-yellow-300" style="clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></div>
+                </div>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full bg-pink-500 flex-shrink-0"></span>
+                        <span class="font-medium">Graphic Design</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full bg-yellow-400 flex-shrink-0"></span>
+                        <span class="font-medium">Social Media Content</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full bg-pink-500 flex-shrink-0"></span>
+                        <span class="font-medium">Copywriting</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full bg-yellow-400 flex-shrink-0"></span>
+                        <span class="font-medium">Creative Communication</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full bg-green-500 flex-shrink-0"></span>
+                        <span class="font-medium">UI/UX Design</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-4 h-4 rounded-full bg-pink-500 flex-shrink-0"></span>
+                        <span class="font-medium">Brand Identity</span>
+                    </li>
+                </ul>
+                
+                <!-- Design Tools -->
+                <div class="mt-8">
+                    <h3 class="font-semibold mb-4">Design Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm skill-badge">Photoshop</span>
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm skill-badge">Illustrator</span>
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm skill-badge">Figma</span>
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm skill-badge">After Effects</span>
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm skill-badge">Premiere Pro</span>
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm skill-badge">Canva</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Profile Section -->
+            <div class="bg-white rounded-3xl p-6 shadow-xl md:col-span-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-pink-200 rounded-full flex items-center justify-center">
+                        <i class="ri-user-line text-gray-800"></i>
+                    </div>
+                    <h2 class="text-xl font-bold">My Profile</h2>
+                </div>
+                
+                <p class="text-gray-700 mb-6">
+                    I am a passionate creative professional specializing in graphic design and social media strategy, with a strong drive for continuous learning and growth. While I may not have extensive volunteer event experience, I actively manage creative content for organizations and personal brands.
+                </p>
+                
+                <p class="text-gray-700">
+                    Through these experiences, I've developed a visual, strategic, and collaborative approach—transforming ideas into impactful work. My design philosophy combines aesthetic appeal with functional communication, creating visuals that not only look beautiful but effectively convey messages and engage audiences.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Experience Section -->
+        <div class="bg-white rounded-3xl p-6 shadow-xl mb-10 relative overflow-hidden">
+            <div class="absolute -bottom-4 -left-4">
+                <div class="star w-12 h-12 bg-yellow-300"></div>
+            </div>
+            
+            <div class="bg-yellow-300 text-gray-900 font-bold py-3 px-6 rounded-full inline-block mb-8">
+                Experience
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Experience 1 -->
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-yellow-300 flex-shrink-0 mt-1"></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Head of Media - RAISHA</h3>
+                        <p class="text-gray-600 mb-3">Sidoarjo, 2021-Present</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                            <li>Managing Instagram content with Islamic-modern visual concepts</li>
+                            <li>Leading creative and editorial teams</li>
+                            <li>Responsible for design, copywriting, and content scheduling</li>
+                            <li>Increased follower engagement by 45% through consistent branding</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-pink-400 flex-shrink-0 mt-1"></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Chief Marketing Officer (CMO) - Hoomanstoc</h3>
+                        <p class="text-gray-600 mb-3">Online Thrift Store, 2021-2022</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                            <li>Created visual marketing strategies for Instagram & Shopee</li>
+                            <li>Designed promotional content and managed weekly campaigns</li>
+                            <li>Successfully increased engagement and repeat customers</li>
+                            <li>Developed brand identity guidelines for consistent visual presence</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-green-500 flex-shrink-0 mt-1"></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Founder & Designer - Eaqly.Gallery</h3>
+                        <p class="text-gray-600 mb-3">Online, 2023-Present</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                            <li>Providing design services for international clothing brands</li>
+                            <li>Managing visual branding, mockups, and brand identity</li>
+                            <li>Working with clients from various countries</li>
+                            <li>Specializing in sustainable fashion brand identity and packaging design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portfolio Projects Section -->
+        <div class="mb-10">
+            <h2 class="text-white text-2xl font-bold mb-6">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl project-card">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/1.png" alt="RAISHA Social Media Campaign" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">RAISHA Social Media Campaign</h3>
+                        <p class="text-gray-600 text-sm mb-4">Instagram content strategy with Islamic-modern visual concepts</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded-full">Social Media</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Branding</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl project-card">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/2.png" alt="Hoomanstoc Marketing Campaign" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Hoomanstoc E-commerce Rebrand</h3>
+                        <p class="text-gray-600 text-sm mb-4">Complete visual marketing strategy for online thrift store</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">E-commerce</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl project-card">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/3.png" alt="Eaqly.Gallery" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Sustainable Fashion Brand Identity</h3>
+                        <p class="text-gray-600 text-sm mb-4">Brand identity and packaging for eco-conscious clothing line</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Brand Identity</span>
+                            <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Packaging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="bg-white rounded-3xl p-6 shadow-xl mb-10">
+            <h2 class="text-2xl font-bold mb-6">Get In Touch</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-gray-700 mb-6">
+                        I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Feel free to reach out using the form or direct contact methods below.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="ri-whatsapp-line text-green-600"></i>
+                            </div>
+                            <span>+62 81-2350-7691</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                                <i class="ri-mail-line text-yellow-600"></i>
+                            </div>
+                            <span>mybraingallery@gmail.com</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
+                                <i class="ri-instagram-line text-pink-600"></i>
+                            </div>
+                            <span>@baylayian</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-pink-500" placeholder="Your name">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-pink-500" placeholder="Your email">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-pink-500" placeholder="Your message"></textarea>
+                        </div>
+                        
+                        <label class="custom-checkbox flex items-center gap-2 mb-4">
+                            <input type="checkbox" class="hidden">
+                            <span class="checkmark"></span>
+                            <span class="text-gray-700 text-sm">I agree to receive email communications</span>
+                        </label>
+                        
+                        <button type="submit" class="bg-pink-500 text-white font-semibold py-3 px-6 rounded-button w-full hover:bg-pink-600 transition duration-300 contact-button !rounded-button whitespace-nowrap">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="flex flex-col md:flex-row justify-between items-center text-white">
+            
+            <div class="mt-4 md:mt-0 text-sm opacity-80">
+                © 2025 Fahmi Mardiansyah. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <script id="checkbox-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.custom-checkbox input');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    // This is just for visual feedback, actual form submission would handle the data
+                    console.log('Checkbox state changed:', this.checked);
+                });
+            });
+        });
+    </script>
+
+    <script id="project-hover-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
